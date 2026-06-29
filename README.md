@@ -1,4 +1,4 @@
-# Build a Fullstack Inventory Management Dashboard
+<!-- # Build a Fullstack Inventory Management Dashboard
 
 [![Tutorial Video](https://img.youtube.com/vi/ddKQ8sZo_v8/0.jpg)](https://www.youtube.com/watch?v=ddKQ8sZo_v8)
 
@@ -42,4 +42,4 @@ Join our [Discord community](https://discord.com/channels/1070200085440376872/12
 
 - [Data model diagram](https://drawsql.app/teams/team-3023/diagrams/56-inventorymanagement)
 - [Prisma schema file](https://github.com/ed-roh/inventory-management/blob/master/server/prisma/schema.prisma)
-- [AWS commands](https://github.com/ed-roh/inventory-management/blob/master/server/aws-ec2-instructions.md)
+- [AWS commands](https://github.com/ed-roh/inventory-management/blob/master/server/aws-ec2-instructions.md) -->
