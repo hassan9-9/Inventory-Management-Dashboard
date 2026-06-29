@@ -1,0 +1,8 @@
+test route: curl http://localhost:8000/hello
+
+init fixing:
+
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Force package-lock.json
+npm cache clean --force
+npm install
