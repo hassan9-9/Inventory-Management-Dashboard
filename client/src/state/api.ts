@@ -50,10 +50,26 @@ export interface DashboardMetrics {
   expenseByCategorySummary: ExpenseByCategorySummary[];
 }
 
+// export interface User {
+//   userId: string;
+//   name: string;
+//   email: string;
+// }
+
 export interface User {
   userId: string;
-  name: string;
+  firstName: string | null;
+  lastName: string | null;
+  username: string | null;
   email: string;
+  role: "ADMIN" | "MANAGER" | "STAFF";
+}
+
+export interface UpdateUserRequest {
+  userId: string;
+  firstName?: string;
+  lastName?: string;
+  username?: string;
 }
 
 export const api = createApi({
@@ -84,6 +100,22 @@ export const api = createApi({
       query: () => "/users",
       providesTags: ["Users"],
     }),
+    updateUser: build.mutation<User, UpdateUserRequest>({
+      query: ({ userId, ...body }) => ({
+        url: `/users/${userId}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Users"],
+    }),
+
+    deleteUser: build.mutation<{ message: string }, string>({
+      query: (userId) => ({
+        url: `/users/${userId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Users"],
+    }),
     getExpensesByCategory: build.query<ExpenseByCategorySummary[], void>({
       query: () => "/expenses",
       providesTags: ["Expenses"],
@@ -96,5 +128,7 @@ export const {
   useGetProductsQuery,
   useCreateProductMutation,
   useGetUsersQuery,
+  useUpdateUserMutation,
+  useDeleteUserMutation,
   useGetExpensesByCategoryQuery,
 } = api;

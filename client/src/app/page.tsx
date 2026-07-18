@@ -1,5 +1,12 @@
-import Dashboard from "@/app/dashboard/page";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <Dashboard />;
+  const { userId } = auth();
+
+  if (!userId) {
+    redirect("/sign-in");
+  }
+
+  redirect("/dashboard");
 }
